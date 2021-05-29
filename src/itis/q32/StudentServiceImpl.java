@@ -29,7 +29,7 @@ public class StudentServiceImpl implements StudentService {
                 students.stream().collect(Collectors.groupingBy(Student::getGroup,Collectors.toList()))
                         .entrySet().stream()
                         .filter(e->e.getValue().size()!=0 && e.getValue().size()
-                                == e.getValue().stream().filter(s->LocalDate.from(s.getBirthdayDate()).getYear()>18)
+                                == e.getValue().stream().filter(s->LocalDate.from(s.getBirthdayDate()).getYear()>=18)
                                 .count()).count());
     }
 
